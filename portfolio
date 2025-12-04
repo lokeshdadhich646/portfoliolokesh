@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokesh Sharma - Frontend Developer</title>
+
+    <!-- CSS IN SAME FILE -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        header {
+            background: linear-gradient(90deg, #0077ff 0%, #005ecb 100%);
+            box-shadow: 0 4px 15px rgba(0, 119, 255, 0.2);
+            position: sticky;
+            top: 0; z-index: 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .logo span {
+            color: #ffc107;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffc107;
+        }
+
+        .menu {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 50px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            gap: 50px;
+        }
+
+        .hero .content {
+            max-width: 55%;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .hero h2 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .hero h3 {
+            font-size: 28px;
+            color: #0077ff;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero span {
+            color: #0077ff;
+        }
+
+        .hero-img {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 15px 40px rgba(0, 119, 255, 0.2);
+            animation: slideInRight 0.8s ease;
+            border: 4px solid #0077ff;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #0077ff 0%, #005ecb 100%);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 119, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #0077ff;
+            border: 2px solid #0077ff;
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background: #0077ff;
+            color: #fff;
+        }
+
+        /* FEATURED SECTION */
+        .featured {
+            padding: 60px 50px;
+            background: #fff;
+            max-width: 1400px;
+            margin: 40px auto;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .featured-card {
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .featured-card h4 {
+            color: #0077ff;
+            margin: 15px 0 10px;
+            font-size: 20px;
+        }
+
+        .featured-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .featured-icon {
+            font-size: 40px;
+            color: #0077ff;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 50px;
+            background: linear-gradient(90deg, #0077ff 0%, #005ecb 100%);
+            margin-top: 60px;
+            color: #fff;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffc107;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav {
+                padding: 15px 25px;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 15px;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #0077ff;
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 25px;
+                gap: 30px;
+            }
+
+            .hero .content {
+                max-width: 100%;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero-img {
+                width: 280px;
+                height: 280px;
+            }
+
+            .btn-secondary {
+                display: block;
+                margin: 10px 0 0 0;
+            }
+
+            .featured {
+                padding: 40px 25px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <h1 class="logo">Lokesh<span>Sharma</span></h1>
+
+            <ul id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="menu" onclick="toggleMenu()">☰</div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="content">
+            <h2>Hello, I'm <span>Lokesh Sharma</span></h2>
+            <h3>Frontend Developer & Web Designer</h3>
+            <p>I craft modern, responsive, and user-friendly web applications with a focus on clean code and exceptional design. Specializing in HTML, CSS, JavaScript, and React to bring your ideas to life.</p>
+            <div>
+                <a href="projects.html" class="btn">View My Projects</a>
+                <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+
+        <img src="LOKESH IMAGE.jpeg" alt="Lokesh Sharma" class="hero-img">
+    </section>
+
+    <!-- FEATURED HIGHLIGHTS -->
+    <section class="featured">
+        <h2 style="text-align: center; font-size: 32px; color: #0077ff; margin-bottom: 10px;">Why Work With Me?</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">I bring expertise, creativity, and dedication to every project</p>
+        
+        <div class="featured-grid">
+            <div class="featured-card">
+                <div class="featured-icon">💻</div>
+                <h4>Clean Code</h4>
+                <p>Writing maintainable and efficient code that follows best practices and industry standards.</p>
+            </div>
+
+            <div class="featured-card">
+                <div class="featured-icon">📱</div>
+                <h4>Responsive Design</h4>
+                <p>Creating beautiful websites that look perfect on all devices and screen sizes.</p>
+            </div>
+
+            <div class="featured-card">
+                <div class="featured-icon">⚡</div>
+                <h4>Performance</h4>
+                <p>Building fast, optimized applications that provide excellent user experience.</p>
+            </div>
+
+            <div class="featured-card">
+                <div class="featured-icon">🎨</div>
+                <h4>Modern Design</h4>
+                <p>Blending aesthetics with functionality for truly engaging interfaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lokesh Sharma | Frontend Developer</p>
+        <p>Building beautiful web experiences, one line of code at a time.</p>
+        <div class="social-links">
+            <a href="https://github.com" target="_blank" title="GitHub">🐙</a>
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn">💼</a>
+            <a href="https://twitter.com" target="_blank" title="Twitter">𝕏</a>
+            <a href="mailto:lokesh@example.com" title="Email">✉️</a>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT IN SAME PAGE -->
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
